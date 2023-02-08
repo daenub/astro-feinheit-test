@@ -1,0 +1,24 @@
+---
+import External from "./External.astro";
+import Image from "./Image.astro";
+import Quotation from "./Quotation.astro";
+import Richtext from "./Richtext.astro";
+
+const Types = {
+    external: External,
+    image: Image,
+    quotation: Quotation,
+    richtext: Richtext,
+} 
+
+const {region} = Astro.props;
+---
+
+<Fragment>
+    {
+        region.map(content => {
+            const Component = Types[content.type]
+            return <Component content={content} />
+        })
+    }
+</Fragment>

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ArticleList } from '../components/ArticleList';
+
+const res = await fetch("https://feinheit.ch/blog/", {
+    headers: {
+        "Accept": "application/json"
+    }
+})
+
+const data = await res.json()
+const {articles} = data
+---
+
+<Layout title="Blog">
+    <h1>Blog</h1>
+    <ArticleList client:load articles={articles} />
+</Layout>

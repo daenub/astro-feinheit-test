@@ -1,0 +1,42 @@
+.search {
+    margin: 2rem 0;
+}
+
+.search__label {
+    display: inline-block;
+    margin-bottom: .25rem;
+}
+
+.search__input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--oc-gray-5);
+    border-radius: 0.25rem;
+}
+
+.article-list {
+    padding: 0;
+}
+
+.article {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.article__link {
+    display: block;
+
+    text-decoration: none;
+    color: var(--oc-blue-9);
+    
+    background: var(--oc-gray-1);
+    border-radius: 4px;
+    border: 2px solid var(--oc-gray-3);
+    
+    padding: 1rem;
+}
+
+.article__link:hover {
+    border-color: var(--oc-blue-3);
+}

@@ -1,0 +1,30 @@
+@import "open-color";
+@import "./reset.css";
+@import "./fonts.css";
+
+body {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+main {
+    width: 65ch;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main > * {
+    grid-column: 2;
+}
+
+.richtext {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.richtext h2 {
+    margin-bottom: 1rem;
+}
+
+.richtext :is(p, ul, ol) {
+    margin-bottom: 1rem;
+}
