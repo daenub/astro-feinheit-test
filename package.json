@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
+    "@astrojs/netlify": "^2.1.2",
     "@astrojs/preact": "^2.0.2",
     "astro": "^2.0.7",
     "open-color": "^1.9.1",

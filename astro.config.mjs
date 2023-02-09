@@ -7,6 +7,11 @@ import preact from "@astrojs/preact";
 import image from "@astrojs/image";
 
 // https://astro.build/config
+import netlify from "@astrojs/netlify/functions";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [preact(), image()]
+  integrations: [preact(), image()],
+  output: "server",
+  adapter: netlify()
 });
