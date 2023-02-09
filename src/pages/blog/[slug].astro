@@ -2,35 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 import Region from '../../components/cms/Region.astro';
 
-export async function getStaticPaths() {
-    const res = await fetch("https://feinheit.ch/blog/", {
-        headers: {
-            "Accept": "application/json"
-        }
-    })
+const { slug } = Astro.params;
 
-    const data = await res.json()
-
-    return data.articles.map((article) => {
-        const slug = article.url.split("/")[2]
-
-        return {
-            params: {slug},
-            props: {articleUrl: article.url}
-        }
-    })
-}
-const { articleUrl } = Astro.props;
-
-const res = await fetch("https://feinheit.ch" + articleUrl, {
+const res = await fetch("https://feinheit.ch/blog/" + slug, {
     headers: {
         "Accept": "application/json"
     }
 })
 
+if (res.status === 404) {
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
+    });
+}
+
 const article = await res.json()
 
-article.regions.main.map(c => c.type).forEach(t => console.log(t))
 ---
 
 <Layout title={article.title}>
